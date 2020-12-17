@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgba(250, 186, 66, .2);
+    display: grid;
+    height: 5000px;
+    width: 100%;
+    grid-template-rows: 25px 3vw 95vh 1fr;
+    grid-template-columns: 2%  8% minmax(0,1fr) 5% minmax(0,1fr) 5% 5%;
+    overflow: hidden;
+}
+
+.bgCon{
+    grid-column: 1/-1;
+    grid-row: 1/4;
+    background-color: rgb(98, 52, 102);
+}
+
+.burger{
+    grid-row: 2/3;
+    grid-column: 6/7;
+    /* background-color: violet; */
+    height: clamp(20px, 50%, 35px);
+    width: clamp(40px, 60%, 70px);
+    justify-self: right;
+    align-self: flex-end;
+    position: relative;
+    transition: ease-in-out .2s;
+    z-index:2 ;
+}
+
+.burger:hover{
+    height: clamp(20px, 57%, 35px);
+    width: clamp(40px, 60%, 70px);
+}
+
+.stripe{
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+}
+.stripe::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+    transform: translateY(-50%);
+}
+.stripe::after{
+    content: '';
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+}
+
+.menu{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+}
+.menu_items{
+    align-self: center;
+    justify-self: center;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(20px, 3vw, 40px);
+    line-height: clpam(30px, 3.5vw, 60px);
+}
+
+.menu_items > div {
+    width: min-content;
+    position: relative;
+}
+.menu_items > div::before {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 0px;
+    background-color: black;
+    transform: translateX(-50%);
+    bottom: 7%;
+    left: 50%;
+    transition: ease-in-out .2s;
+}
+.menu_items > div:hover {
+    cursor: pointer;
+}
+.menu_items > div:hover::before {
+    width: 95%;
+}
+.menu_view{
+    position: absolute;
+    left:3%;
+    top: 3%;
+}
+@media only screen and (orientation: landscape){
+    .logoCon{
+        grid-column: 3/4;
+        grid-row: 3;
+        height: min-content;
+        position: relative;
+        background-color: wheat;
+        transition: ease-in-out .3s; 
+    }
+    
+    .logo{
+        position: absolute;
+        height: 40px;
+        width:144px;
+        background-image: url("imgs/SuperGood_Logo_Black.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform-origin: top right;
+        transform: translate(-100%, 0%) rotate(-90deg);
+        margin-top: clamp(4px, .4vw, 7px);
+    }
+    
+    .motto{
+        margin-left: 40px;
+    }
+    
+    .motto h1{
+        white-space: nowrap;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+        font-size: clamp(60px, 5vw, 75px);
+        line-height: clamp(57px, 4.7vw, 72px);
+        text-transform: uppercase;
+    }
+}
+
+
+ 
