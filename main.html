@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="bgCon"></div>
@@ -17,17 +17,22 @@
             <h1>smoothies</h1>
         </div>
     </div>
-    <div class="burger">
-        <div class="stripe"></div>
+    <div class="burger close">
+        <div class="stripe one"></div>
+        <div class="stripe two"></div>
+        <div class="stripe three"></div>
     </div>
     <div class="menu">
         <div class="logo menu_view"></div>
         <div class="menu_items">
-            <div class="home">home</div>
-            <div class="products">products</div>
-            <div class="about">about</div>
-            <div class="where_to_find">where to find us</div>
+            <div class="item home">home</div>
+            <div class="item products">products</div>
+            <div class="item about">about</div>
+            <div class="item where_to_find">where to find us</div>
         </div>
     </div>
+    <button class="view_prod">View product range</button>
+    <div class="video"></div>
+    <div class="post_pic"></div>
 </body>
 </html>
