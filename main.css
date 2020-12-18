@@ -1,5 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+/* font classes */
+
+/* narrow paragraph */
+.p1{
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: clamp(7px, 1.7vw, 25px);
+}
+
+.h1 {
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: clamp(15px, 4.5vw, 70px);
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -7,25 +24,58 @@
 }
 
 body{
-    background-color: rgba(250, 186, 66, .2);
+    background-color: rgb(20, 114, 1);
     display: grid;
     height: 5000px;
     width: 100%;
-    grid-template-rows: 25px 3vw 95vh 43vw 43vw;
-    grid-template-columns: 2%  8% minmax(0,1fr) 10% minmax(0,1fr) 5% 5%;
+    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) 450px 1fr;
+    grid-template-columns: 2%  3% 5% minmax(0,1fr) 10% minmax(0,1fr) 5% 3% 2%;
     
+}
+.logoCon{
+    grid-column: 4/5;
+    grid-row: 3;
+    height: min-content;
+    position: relative;
+    /* background-color: wheat; */
+    transition: ease-in-out .3s; 
+}  
+.logo{
+    position: absolute;
+    background-position: bottom;
+    height: 40px;
+    width: clamp(60px, 11vw, 144px);
+    background-image: url("imgs/SuperGood_Logo_Black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform-origin: top right;
+    transform: translate(-100%, 0%) rotate(-90deg);
+    margin-top: clamp(4px, .4vw, 7px);
+}
+
+.motto{
+    margin-left: 40px;
+}
+
+.motto h1{
+    white-space: nowrap;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: clamp(25px, 5vw, 75px);
+    line-height: clamp(23px, 4.7vw, 72px);
+    text-transform: uppercase;
 }
 
 .bgCon{
     grid-column: 1/-1;
     grid-row: 1/4;
-    background-color: rgb(98, 52, 102);
+    background-color: rgb(82, 0, 0);
 }
 
 .burger{
     grid-row: 2/3;
-    grid-column: 6/7;
-    /* background-color: violet; */
+    grid-column: 7/8;
+    position: fixed;
     height: clamp(20px, 50%, 35px);
     width: clamp(40px, 60%, 70px);
     justify-self: right;
@@ -108,20 +158,19 @@ body{
     width: 95%;
 }
 .menu_view{
-    position: absolute;
-    left:3%;
     top: 3%;
+    margin-left: 1%;
 }
 
-.view_prod{
-    grid-column: 4/5;
+button{
+    grid-column: 5/6;
     grid-row: 3/4;
     align-self: end;
     justify-self: center;
     white-space: nowrap;
-    font-size: clamp(17px, 2vw, 25px);
+    font-size: clamp(13px, 2vw, 25px);
     font-family: 'Lato', sans-serif;
-    padding: 2.5vh 4vh;
+    padding: 10% 25%;
     border-radius: 3em 3em;
     border:solid black 2.3px;
     height: 40px;
@@ -137,50 +186,104 @@ body{
 }
 .video{
     grid-row: 4/5;
-    grid-column: 5/-1;
-    background-color: lightblue;
+    grid-column: 6/-2;
+    background-color: rgb(0, 59, 56);
 }
 .post_pic{
     grid-row: 5/6;
-    grid-column: 1/4;
-    background-color: lightblue;
+    grid-column: 2/5;
+    background-color: rgb(0, 59, 56);
     transform: translateY(-10%);
 }
-@media only screen and (orientation: landscape){
-    .logoCon{
-        grid-column: 3/4;
-        grid-row: 3;
-        height: min-content;
-        position: relative;
-        /* background-color: wheat; */
-        transition: ease-in-out .3s; 
-    }
-    
-    .logo{
-        position: absolute;
-        height: 40px;
-        width:144px;
-        background-image: url("imgs/SuperGood_Logo_Black.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        transform-origin: top right;
-        transform: translate(-100%, 0%) rotate(-90deg);
-        margin-top: clamp(4px, .4vw, 7px);
-    }
-    
-    .motto{
-        margin-left: 40px;
-    }
-    
-    .motto h1{
-        white-space: nowrap;
-        font-family: 'Oswald', sans-serif;
-        font-weight: 400;
-        font-size: clamp(60px, 5vw, 75px);
-        line-height: clamp(57px, 4.7vw, 72px);
-        text-transform: uppercase;
-    }
+
+.vid_text{
+    grid-column: 4/5;
+    margin-top: 7%;
 }
 
+.vid_text > h1 {
+    line-height: clamp(17px, 6vw, 90px);
+}
+.vid_text > p {
+    margin-top: 5%;
+}
+.post_text{
+    grid-column: 6/7;  
+    white-space: nowrap;
+    margin-top: 15%;
+    /* transform: translateY(-12%); */
+    height: min-content;
+    /* align-self: flex-end; */
+}
+.post_text > h1{
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: calc(clamp(15px, 4.5vw, 70px)*0.9);
+    line-height: calc(clamp(17px, 6vw, 90px)*0.9);
+    display: inline;
+}
+.post_text img{
+    height: calc(clamp(17px, 6vw, 90px)*0.55);
+    padding: 0 1%;
+}
 
- 
+.post_text p > img{
+   padding-right: calc(clamp(10px, 1.7vw, 25px));
+}
+
+.post_text > p {
+    font-family: "Oswald", sans-serif;
+    font-weight: 200;
+    font-size: calc(clamp(7px, 1.7vw, 25px)*1.4);
+    margin-bottom: clamp(2px, .9vw, 20px);
+}
+.post_text > p:first-of-type{
+    margin-top: 6%;
+}
+
+.meet{
+    grid-column: 5/6;
+    white-space: nowrap;
+    justify-self: center;
+    margin-top: clamp(50px, 10vw, 80px);
+    border: 3px solid black;
+    height: min-content;
+    padding: 0 15%;
+}
+
+.prod_present{
+    grid-column: 1/-1;
+    background-color:darkgrey
+}
+
+@media screen and (orientation: portrait) and (max-width:360px){
+    .post_pic{
+        transform: translateY(20%);
+    }
+    .post_text{
+        margin-top: 20%;
+    }
+    .meet{
+        border: 1.5px solid black;
+    }
+}
+@media screen and (orientation: portrait) and (max-width:500px) and (min-width: 360px){
+    .vid_text{
+        grid-column: 3/5;
+    }
+    .logoCon{
+        grid-column: 3/5;
+        grid-row: 2;
+    }
+    .meet{
+        border: 2px solid black;
+    }
+}
+@media screen and (min-width: 1500px){
+    .vid_text{
+        margin-top: 13%;
+    }
+    .vid_text > p{
+        padding-right: 10%;
+    }
+}
