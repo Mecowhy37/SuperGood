@@ -7,7 +7,6 @@
 .p1{
     font-family: "Lato";
     font-weight: 400;
-    font-size: clamp(7px, 1.7vw, 25px);
 }
 
 .h1 {
@@ -15,6 +14,13 @@
     font-family: "Oswald", sans-serif;
     font-weight: 400;
     font-size: clamp(15px, 4.5vw, 70px);
+    white-space: nowrap;
+}
+.h2{
+    text-transform: capitalize;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: calc(clamp(15px, 4.5vw, 70px)*0.9);
 }
 
 *{
@@ -24,11 +30,11 @@
 }
 
 body{
-    background-color: rgb(20, 114, 1);
+    background-color: rgb(255, 255, 255);
     display: grid;
     height: 5000px;
     width: 100%;
-    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) 450px 1fr;
+    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) clamp(450px, 60vh, 850px) 1fr;
     grid-template-columns: 2%  3% 5% minmax(0,1fr) 10% minmax(0,1fr) 5% 3% 2%;
     
 }
@@ -43,7 +49,7 @@ body{
 .logo{
     position: absolute;
     background-position: bottom;
-    height: 40px;
+    height: clamp(17px, 3vw, 40px);
     width: clamp(60px, 11vw, 144px);
     background-image: url("imgs/SuperGood_Logo_Black.png");
     background-size: contain;
@@ -54,13 +60,10 @@ body{
 }
 
 .motto{
-    margin-left: 40px;
+    margin-left: clamp(17px, 3vw, 40px);
 }
 
-.motto h1{
-    white-space: nowrap;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
+.motto > h1{
     font-size: clamp(25px, 5vw, 75px);
     line-height: clamp(23px, 4.7vw, 72px);
     text-transform: uppercase;
@@ -163,24 +166,25 @@ body{
 }
 
 button{
-    grid-column: 5/6;
-    grid-row: 3/4;
-    align-self: end;
-    justify-self: center;
     white-space: nowrap;
     font-size: clamp(13px, 2vw, 25px);
     font-family: 'Lato', sans-serif;
     padding: 10% 25%;
     border-radius: 3em 3em;
-    border:solid black 2.3px;
-    height: 40px;
+    border:solid black 2px;
     background-color: rgba(255, 255, 255, 0);
-    margin-bottom: clamp(40px, 8vw, 150px);
     transition-duration: .2s;
     display: grid;
     align-content: center;
 }
-.view_prod:hover{
+.view_prod{
+    margin-bottom: clamp(40px, 8vw, 150px);
+    grid-column: 5/6;
+    grid-row: 3/4;
+    align-self: end;
+    justify-self: center;
+}
+button:hover{
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px -5px;
     background-color: rgba(255, 255, 255, 0.021);
 }
@@ -206,6 +210,7 @@ button{
 }
 .vid_text > p {
     margin-top: 5%;
+    font-size: clamp(8px, 1.7vw, 25px);
 }
 .post_text{
     grid-column: 6/7;  
@@ -248,12 +253,80 @@ button{
     margin-top: clamp(50px, 10vw, 80px);
     border: 3px solid black;
     height: min-content;
-    padding: 0 15%;
+    padding: 0 35%;
 }
 
 .prod_present{
     grid-column: 1/-1;
-    background-color:darkgrey
+    grid-row: 7/8;
+    background-color:#E9F2E8;
+    display: grid;
+    grid-template-rows: min-content 230px 1fr 1fr;
+    grid-template-columns: 1fr 55vw 1fr;
+    height: min-content
+}
+.prod_present h2{
+    color: #054832;
+}
+.descr{
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    /* background-color: white; */
+    text-align: center;
+    padding: 3vw 15vw 0% 15vw;
+    margin-bottom: 3vw;
+}
+.descr > p {
+    font-size: calc(clamp(8px, 1.7vw, 25px)*1.2);
+    margin-top: 3%;
+}
+.prod_holder{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    /* background-color: rgb(58, 58, 58); */
+    background-image: url("imgs/greens_for_the_glow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin-bottom: 7%; */
+}
+.whats_in{
+    grid-row:3/4;
+    grid-column: 1/-1;
+    /* background-color: white; */
+    margin:  5vw 12% 0% 12%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+}
+.whats_in > p{
+    margin-left: 10%;
+}
+
+.prod_present button{
+    grid-row: 4/5;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: center;
+    padding: 2% 7%;
+    width: min-content;
+}
+.arrow{
+    grid-row: 2/3;
+    place-self: center;
+    background-image: url("imgs/arrow.png");
+    background-repeat: no-repeat;
+    height: 10%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    /* background-color: tomato; */
+}
+.right{
+    transform: rotate(180deg);
 }
 
 @media screen and (orientation: portrait) and (max-width:360px){
@@ -266,6 +339,10 @@ button{
     .meet{
         border: 1.5px solid black;
     }
+    .logoCon{
+        grid-column: 3/5;
+        grid-row: 2;
+    }
 }
 @media screen and (orientation: portrait) and (max-width:500px) and (min-width: 360px){
     .vid_text{
@@ -277,6 +354,12 @@ button{
     }
     .meet{
         border: 2px solid black;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 1500px){
+    .whats_in{
+        grid-column: 2/3;
+        margin:  5vw 0%;
     }
 }
 @media screen and (min-width: 1500px){
