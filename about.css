@@ -37,16 +37,85 @@ header {
 
 header h1 {
 	padding-bottom: 1%;
+	font-size: 400%;
 }
 
 header p {
 	padding-left: 20%;
 	padding-right: 20%;
+	font-size: 150%;
+	line-height: 1.5;
+	font-weight: 100;
+}
+
+main > section {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+	grid-gap: 3em;
+	margin: 3%;
 }
 
 main img {
 	object-fit: cover;
 	width: 40vw;
 	height: 40vw;
-	margin: 6%;
+}
+
+section > .text {
+	margin: 10%;
+	padding-top: 10%;
+}
+
+section > .text h3 {
+	padding-bottom: 5%;
+	font-size: 300%;
+	font-weight: 100;
+}
+
+section > .text p {
+	line-height: 1.5;
+	font-size: 150%;
+	font-weight: 100;
+}
+
+.instagram {
+	display: block;
+	margin: 3%;
+	text-align: center;
+}
+
+.instagram h1 {
+	padding-bottom: 1%;
+	font-size: 400%;
+	font-weight: 100;
+}
+
+.instagram h2 {
+	padding-bottom: 1%;
+	font-size: 200%;
+	font-family: "Oswald", sans-serif;
+	font-weight: 100;
+}
+
+.instagram p {
+	padding-left: 35%;
+	padding-right: 35%;
+	padding-bottom: 3%;
+	font-size: 150%;
+	line-height: 1.5;
+	font-weight: 100;
+}
+
+.intagram > div {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+	grid-gap: 5em;
+	margin: 3%;
+}
+
+.instagram > div img {
+	object-fit: cover;
+	width: 30vw;
+	height: 30vw;
+	padding: 2%;
 }
