@@ -30,7 +30,7 @@ body{
     position: relative;
     transition: ease-in-out 0.2s;
     z-index: 2;
-  }
+}
   .stripe {
     position: absolute;
     width: 100%;
@@ -55,7 +55,8 @@ body{
     height: 100vh;
     background-color: white;
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 100vh;
+    align-content: center;
   }
   
   .showMenu {
@@ -64,6 +65,7 @@ body{
     transition: ease-in-out 0.3s;
   }
   .menu_items {
+      grid-row: 1;
     align-self: center;
     justify-self: center;
     font-family: "Lato", sans-serif;
@@ -102,3 +104,10 @@ body{
     top: 3%;
     margin-left: 1%;
   }
+
+  .logo img {
+	width: 10vw;
+	margin-top: 3%;
+    margin-left: 3%;
+    z-index: 3;
+}
