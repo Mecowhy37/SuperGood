@@ -55,7 +55,8 @@ body{
     height: 100vh;
     background-color: white;
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 100vh;
+    align-content: center;
   }
   
   .showMenu {
@@ -64,6 +65,7 @@ body{
     transition: ease-in-out 0.3s;
   }
   .menu_items {
+      grid-row: 1;
     align-self: center;
     justify-self: center;
     font-family: "Lato", sans-serif;
