@@ -353,6 +353,9 @@ button:hover {
 .footer > div:last-child{
   margin-top: 10%;
 }
+.footer a {
+  display: block;
+}
 
 @media screen and (orientation: portrait) and (max-width: 360px) {
   .post_pic {
