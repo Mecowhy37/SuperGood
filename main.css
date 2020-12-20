@@ -1,31 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+/* font classes */
+
+/* narrow paragraph */
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
-    background-color: rgba(250, 186, 66, .2);
+header{
+    background-color: rgb(255, 255, 255);
     display: grid;
     height: 5000px;
     width: 100%;
-    grid-template-rows: 25px 3vw 95vh 1fr;
-    grid-template-columns: 2%  8% minmax(0,1fr) 5% minmax(0,1fr) 5% 5%;
-    overflow: hidden;
+    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) clamp(300px, 30vh, 400px) 1fr;
+    grid-template-columns: 2%  3% 5% minmax(0,1fr) 10% minmax(0,1fr) 5% 3% 2%;
+
+}
+.logoCon{
+    grid-column: 4/5;
+    grid-row: 3;
+    height: min-content;
+    position: relative;
+    /* background-color: wheat; */
+    transition: ease-in-out .3s;
+}
+.logo{
+    position: absolute;
+    background-position: bottom;
+    height: clamp(17px, 3vw, 40px);
+    width: clamp(60px, 11vw, 144px);
+    background-image: url("imgs/SuperGood_Logo_Black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform-origin: top right;
+    transform: translate(-100%, 0%) rotate(-90deg);
+    margin-top: clamp(4px, .4vw, 7px);
 }
 
 .bgCon{
     grid-column: 1/-1;
     grid-row: 1/4;
-    background-color: rgb(98, 52, 102);
+    background-color: white;
 }
 
 .burger{
     grid-row: 2/3;
-    grid-column: 6/7;
-    /* background-color: violet; */
+    grid-column: 7/8;
+    position: fixed;
     height: clamp(20px, 50%, 35px);
     width: clamp(40px, 60%, 70px);
     justify-self: right;
@@ -35,43 +60,41 @@ body{
     z-index:2 ;
 }
 
-.burger:hover{
+/* .burger:hover{
     height: clamp(20px, 57%, 35px);
     width: clamp(40px, 60%, 70px);
-}
+} */
 
 .stripe{
+    position: absolute;
     width: 100%;
     height: 3px;
     border-radius: 2px;
     background-color: black;
 }
-.stripe::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 3px;
-    border-radius: 2px;
-    background-color: black;
-    transform: translateY(-50%);
+.stripe.one{
+    top:0%;
 }
-.stripe::after{
-    content: '';
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    height: 3px;
-    border-radius: 2px;
-    background-color: black;
+.stripe.two{
+    top:50%;
+}
+.stripe.three{
+    top: 100%;
 }
 
 .menu{
+    clip-path: circle(0%);
     position: fixed;
     width: 100%;
     height: 100vh;
     background-color: white;
     display: grid;
+}
+
+.showMenu{
+    visibility: visible;
+    opacity: 1;
+    transition:ease-in-out .3s;
 }
 .menu_items{
     align-self: center;
@@ -83,10 +106,11 @@ body{
     flex-direction: column;
     align-items: center;
     font-size: clamp(20px, 3vw, 40px);
-    line-height: clpam(30px, 3.5vw, 60px);
+    line-height: clamp(30px, 4vw, 70px);
 }
 
-.menu_items > div {
+.item {
+    opacity: 0;
     width: min-content;
     position: relative;
 }
@@ -108,9 +132,62 @@ body{
     width: 95%;
 }
 .menu_view{
-    position: absolute;
-    left:3%;
     top: 3%;
+    margin-left: 1%;
+}
+
+/*Find_us section*/
+
+body {
+
+}
+
+.find_us h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(60px, 4.5vw, 70px);
+    white-space: nowrap;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.find_us h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    white-space: nowrap;
+    margin: 40px;
+}
+
+.find_us p {
+    font-family: 'Lato', sans-serif;
+    white-space: nowrap;
+    margin: 40px;
+}
+
+.find_us img {
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2024px;
+    margin-top: 50px;
+    object-fit: cover;
+
+}
+
+footer h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.contact p {
+    font-family: 'Lato', sans-serif;
+}
+
+.contact a {
+    font-family: 'Lato', sans-serif;
+}
+
+.more a {
+    font-family: 'Oswald', sans-serif;
 }
 @media only screen and (orientation: landscape){
     .logoCon{
@@ -118,7 +195,7 @@ body{
         grid-row: 3;
         height: min-content;
         position: relative;
-        background-color: wheat;
+        background-color: white;
         transition: ease-in-out .3s; 
     }
     
@@ -133,20 +210,6 @@ body{
         transform: translate(-100%, 0%) rotate(-90deg);
         margin-top: clamp(4px, .4vw, 7px);
     }
-    
-    .motto{
-        margin-left: 40px;
-    }
-    
-    .motto h1{
-        white-space: nowrap;
-        font-family: 'Oswald', sans-serif;
-        font-weight: 400;
-        font-size: clamp(60px, 5vw, 75px);
-        line-height: clamp(57px, 4.7vw, 72px);
-        text-transform: uppercase;
-    }
 }
 
 
- 
