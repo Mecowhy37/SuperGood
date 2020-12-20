@@ -15,7 +15,7 @@ body{
 }
 .lineup{
     height: 100vh;
-    background-color: blue;
+    /* background-color: blue; */
     grid-column: 1/-1;
     grid-row: 1;
 }
@@ -103,6 +103,11 @@ body{
   .menu_view {
     top: 3%;
     margin-left: 1%;
+  }
+  .logo {
+      position: absolute;
+      margin-top: 3%;
+      margin-left: 3%;
   }
 
   .logo img {
