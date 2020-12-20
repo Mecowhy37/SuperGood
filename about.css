@@ -1,5 +1,116 @@
+/*** Fonts ***/
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+/*** Navigation and Menu from Landing Page ***/
+
+nav {
+	background-color: rgb(255, 255, 255);
+	display: grid
+	grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) clamp(300px, 30vh, 400px);
+	grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
+	margin-top: 5%;
+}
+
+nav.burger {
+	grid-row: 2/3;
+	grid-column: 7/8;
+	position: fixed;
+	height: clamp(20px, 50%, 35px);
+	width: clamp(40px, 60%, 70px);
+	justify-self: right;
+	align-self: flex-end;
+	position: relative;
+	transition: ease-in-out .2s;
+	z-index: 2;
+}
+
+.menu {
+	clip-path: circle(0%);
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background-color: white;
+	display: grid;
+}
+
+.showMenu {
+	visibility: visible;
+	opacity: 1;
+	transition: ease-in-out .3s;
+}
+
+.menu_items {
+	align-self: center;
+	justify-self: center;
+	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: clamp(20px, 3vw, 40px);
+	line-height: clamp(30px, 4vw, 70px);
+}
+
+.stripe {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: black;
+}
+.stripe.one {
+  top: 0%;
+}
+.stripe.two {
+  top: 50%;
+}
+.stripe.three {
+  top: 100%;
+}
+
+.item {
+	opacity: 0;
+	width: min-content;
+	position: relative;
+}
+
+.menu_items > div::before {
+	content: "";
+	position: absolute;
+	height: 1.5px;
+	width: 0px;
+	background-color: black;
+	transform: translateX(-50%);
+	bottom: 7%;
+	left: 50%;
+	transition: ease-in-out .2s;
+}
+
+.menu_items > div:hover {
+	cursor: pointer;
+}
+
+.menu_items > div:hover::before {
+	width: 95%;
+}
+
+.menu_view {
+	top: 3%;
+	margin-left: 1%;
+}
+
+.logo img {
+	width: 10vw;
+	margin-top: 3%;
+	margin-left: 3%;
+}
+
+/*** End of Navigation and Menu - Landing Page ***/
+
+/*** About Page ***/
 
 * {
 	box-sizing: border-box;
@@ -9,10 +120,6 @@
 
 body {
 	display: block;
-}
-
-nav {
-
 }
 
 h1 {
@@ -26,11 +133,7 @@ p {
 	font-family: "Lato";
 }
 
-.logo img {
-	width: 10vw;
-	margin-top: 3%;
-	margin-left: 3%;
-}
+/*** Header ***/
 
 header {
 	display: flex;
@@ -51,6 +154,8 @@ header p {
 	line-height: 1.5;
 	font-weight: 100;
 }
+
+/*** Main ***/
 
 main > section {
 	display: grid;
@@ -81,6 +186,8 @@ section > .text p {
 	font-size: 150%;
 	font-weight: 100;
 }
+
+/*** Instagram Section ***/
 
 .instagram {
 	display: block;
@@ -123,3 +230,9 @@ section > .text p {
 	height: 30vw;
 	padding: 2%;
 }
+
+/*** Footer from Landing Page ***/
+
+/*** Media Queries ***/
+
+
