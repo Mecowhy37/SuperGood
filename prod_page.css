@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display:grid;
+    grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
+    grid-template-rows: 25px 3vw 1fr;
+    height: 100vh;
+}
+.lineup{
+    height: 100vh;
+    background-color: blue;
+    grid-column: 1/-1;
+    grid-row: 1;
+}
+.burger {
+    grid-row: 2/3;
+    grid-column: 7/8;
+    position: fixed;
+    height: clamp(20px, 50%, 35px);
+    width: clamp(40px, 60%, 70px);
+    justify-self: right;
+    align-self: flex-end;
+    position: relative;
+    transition: ease-in-out 0.2s;
+    z-index: 2;
+  }
+  .stripe {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+  }
+  .stripe.one {
+    top: 0%;
+  }
+  .stripe.two {
+    top: 50%;
+  }
+  .stripe.three {
+    top: 100%;
+  }
+  
+  .menu {
+    clip-path: circle(0%);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  
+  .showMenu {
+    visibility: visible;
+    opacity: 1;
+    transition: ease-in-out 0.3s;
+  }
+  .menu_items {
+    align-self: center;
+    justify-self: center;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(20px, 3vw, 40px);
+    line-height: clamp(30px, 4vw, 70px);
+  }
+  
+  .item {
+    opacity: 0;
+    width: min-content;
+    position: relative;
+  }
+  .menu_items > div::before {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 0px;
+    background-color: black;
+    transform: translateX(-50%);
+    bottom: 7%;
+    left: 50%;
+    transition: ease-in-out 0.2s;
+  }
+  .menu_items > div:hover {
+    cursor: pointer;
+  }
+  .menu_items > div:hover::before {
+    width: 95%;
+  }
+  .menu_view {
+    top: 3%;
+    margin-left: 1%;
+  }
