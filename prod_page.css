@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+
+
+:root{
+    --width: clamp(360px, 80vw, 1100px);
+}
+
+h1{
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: clamp(25px, 5vw, 70px);
+  line-height: clamp(27px, 5vw, 72px)
+}
+
+h2{
+  font-family: "Oswald", sans-serif;
+  font-weight: 100;
+  font-size: clamp(16px, 2.6vw, 33px);
+  line-height: clamp(16px, 2.6vw, 33px);
+}
+
+h3{
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: calc(clamp(15px, 4.5vw, 70px) * 0.4);
+  line-height: calc(clamp(17px, 6vw, 90px) * 0.4);
+}
+
+h4{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: calc(clamp(16px, 2.6vw, 33px)*1.3);
+  line-height: clamp(16px, 2.6vw, 33px);
+}
+
+p{
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: clamp(8px, 1.7vw, 25px)
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display:grid;
+    grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
+    grid-template-rows: 25px 3vw 92vh min-content min-content min-content min-content;
+    height: 5000px;
+}
+
+
+.burger {
+    grid-row: 2/3;
+    grid-column: 7/8;
+    position: fixed;
+    height: clamp(20px, 50%, 35px);
+    width: clamp(40px, 60%, 70px);
+    justify-self: right;
+    align-self: flex-end;
+    position: relative;
+    transition: ease-in-out 0.2s;
+    z-index: 2;
+}
+  .stripe {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+  }
+  .stripe.one {
+    top: 0%;
+  }
+  .stripe.two {
+    top: 50%;
+  }
+  .stripe.three {
+    top: 100%;
+  }
+  
+  .menu {
+    clip-path: circle(0%);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 100vh;
+    align-content: center;
+  }
+  
+  .showMenu {
+    visibility: visible;
+    opacity: 1;
+    transition: ease-in-out 0.3s;
+  }
+  .menu_items {
+      grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(20px, 3vw, 40px);
+    line-height: clamp(30px, 4vw, 70px);
+  }
+  
+  .item {
+    opacity: 0;
+    width: min-content;
+    position: relative;
+  }
+  .menu_items > div::before {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 0px;
+    background-color: black;
+    transform: translateX(-50%);
+    bottom: 7%;
+    left: 50%;
+    transition: ease-in-out 0.2s;
+  }
+  .menu_items > div:hover {
+    cursor: pointer;
+  }
+  .menu_items > div:hover::before {
+    width: 95%;
+  }
+  .menu_view {
+    top: 3%;
+    margin-left: 1%;
+  }
+  .logo {
+      position: absolute;
+      margin-top: 3%;
+      margin-left: 3%;
+  }
+
+  .logo img {
+	width: 10vw;
+	margin-top: 3%;
+    margin-left: 3%;
+    z-index: 3;
+}
+.lineup{
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    align-self: center;
+    width: var(--width);
+    height: clamp(190px, 30vw, 380px);
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+}
+
+.holder{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr min-content;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+.cover{
+    background-size: contain;
+    grid-row: 1/2;
+    /* height: 100%; */
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.lineup h2{
+    grid-row: 2/3;
+    white-space: nowrap;
+}
+
+.one{
+    background-image: url("/imgs/greens_for_the_glow.png");
+}
+.two{
+    background-image: url("/imgs/sweeten_me_up.png");
+}
+.three{
+    background-image: url("/imgs/skip_the_coffee.png");
+}
+.four{
+    background-image: url("/imgs/take_it_with_the_grain.png");
+}
+
+.product{
+    grid-column: 1/-1;
+    height: min-content;
+    display: inline;
+}
+.product:not(:first-of-type){
+  margin-top: 7%;
+}
+#one{
+  grid-row: 4/5;
+}
+#two{
+  grid-row: 5/6;
+}
+#three{
+  grid-row: 6/7
+}
+#four{
+  grid-row: 7/8;
+}
+
+.section{
+    width: 100%;
+    /* height: 70vh; */
+    display: grid;
+    grid-template-columns: 1fr 1fr calc(var(--width)/2) calc(var(--width)/2) 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.first{
+    background-color: #E9F2E8;
+    padding: 5vw 0;
+}
+.second{
+    /* background-color:darkred; */
+    height: min-content;
+    padding: 3vw 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.intro{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    height: min-content;
+    /* background-color: rgb(38, 114, 85); */
+    align-self: center;
+    padding-right: 2vw;;
+}
+.intro h1{
+    margin-right: 25%;
+    color:#054832;
+}
+
+.intro h3{
+    margin-top: 5%;
+}
+.intro p{
+    margin-top: 5%;
+}
+.showcase{
+    grid-column: 4/5;
+    grid-row: 1/2;
+    /* background-color: olivedrab; */
+    display: grid;
+    align-content: center;
+    justify-items: flex-end;
+}
+.showcase img{
+    margin-right: 5%;
+    width: 60%;
+}
+
+.long_descr{
+    grid-column: 3/-3;
+    grid-row: 1;
+    /* background-color: orange; */
+    display: grid;
+    justify-items: center;
+    padding: 3% 20%;
+    text-align: center;
+}
+.long_descr h4{
+    white-space: nowrap;
+}
+.long_descr p {
+    margin-top: 5%;
+}
+
+
+.ingredients{
+    grid-column: 2/-2;
+    grid-row: 2;
+    background-color:#E9F2E8;
+    margin-top: 3%;
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: 10%;
+    grid-template-rows: 1fr 80% 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: 10%;
+    justify-content: center;
+}
+.ingre{
+    /* border: 2px solid black; */
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ingre_png{
+  /* border: 2px solid black; */
+  background-image: url("imgs/maple.png");
+  width: 90%;
+  height: 70%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  place-self: center;
+}
+.ingre h2{
+  text-align: center;
+}
