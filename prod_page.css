@@ -199,9 +199,13 @@ body{
 
 .product{
     grid-column: 1/-1;
-    grid-row: 4;
-    height: 140vh;
+    height: min-content;
+    display: inline;
 }
+#top{
+  grid-row: 4;
+}
+
 .section{
     width: 100%;
     /* height: 70vh; */
@@ -276,12 +280,30 @@ body{
     background-color:#E9F2E8;
     margin-top: 3%;
     display: grid;
+    grid-gap: 1%;
     grid-template-columns: 10%;
+    grid-template-rows: 1fr 80% 1fr;
     grid-auto-flow: column;
     grid-auto-columns: 10%;
     justify-content: center;
 }
 .ingre{
-    /* grid-column: 2/-2; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ingre_png{
+  /* border: 2px solid black; */
+  background-image: url("imgs/maple.png");
+  width: 90%;
+  height: 70%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  place-self: center;
+}
+.ingre h2{
+  text-align: center;
 }
