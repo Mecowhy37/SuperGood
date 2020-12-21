@@ -190,16 +190,16 @@ body{
 }
 
 .one{
-    background-image: url("/imgs/greens_for_the_glow.png");
+    background-image: url("./imgs/greens_for_the_glow.png");
 }
 .two{
-    background-image: url("/imgs/sweeten_me_up.png");
+    background-image: url("./imgs/sweeten_me_up.png");
 }
 .three{
-    background-image: url("/imgs/skip_the_coffee.png");
+    background-image: url("./imgs/skip_the_coffee.png");
 }
 .four{
-    background-image: url("/imgs/take_it_with_the_grain.png");
+    background-image: url("./imgs/take_it_with_the_grain.png");
 }
 
 .product{
