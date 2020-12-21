@@ -55,7 +55,7 @@ body {
   background-position: bottom;
   height: clamp(17px, 3vw, 40px);
   width: clamp(60px, 11vw, 144px);
-  background-image: url("imgs/SuperGood_Logo_Black.png");
+  background-image: url("/imgs/SuperGood_Logo_Black.png");
   background-size: contain;
   background-repeat: no-repeat;
   transform-origin: top right;
@@ -295,7 +295,7 @@ button:hover {
   grid-row: 2/3;
   grid-column: 2/3;
   /* background-color: rgb(58, 58, 58); */
-  background-image: url("imgs/greens_for_the_glow.png");
+  background-image: url("/imgs/greens_for_the_glow.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -326,7 +326,7 @@ button:hover {
 .arrow {
   grid-row: 2/3;
   place-self: center;
-  background-image: url("imgs/arrow.png");
+  background-image: url("/imgs/arrow.png");
   background-repeat: no-repeat;
   height: 10%;
   width: 100%;
