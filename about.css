@@ -241,14 +241,14 @@ section > .text p {
 	font-weight: 100;
 }
 
-.intagram > div {
+.intagram > article {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 	grid-gap: 5em;
 	margin: 3%;
 }
 
-.instagram > div img {
+.instagram > article img {
 	object-fit: cover;
 	width: 30vw;
 	height: 30vw;
@@ -308,7 +308,7 @@ section > .text p {
 	font-size: 130%;
 }
 
-	.instagram > div img {
+	.instagram > article img {
 		display: block;
 		width: 70vw;
 		height: 70vw;
