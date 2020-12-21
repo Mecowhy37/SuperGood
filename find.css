@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+
+/* width: clamp(360px, 80vw, 1100px); */
+:root{
+    --width: clamp(360px, 80vw, 1100px);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
+    grid-template-rows: 25px 3vw 92vh;
+    height: 100%;
+}
+
+/* MENUBAR */
+
+.burger {
+    grid-row: 2/3;
+    grid-column: 7/8;
+    position: fixed;
+    height: clamp(20px, 50%, 35px);
+    width: clamp(40px, 60%, 70px);
+    justify-self: right;
+    align-self: flex-end;
+    position: relative;
+    transition: ease-in-out 0.2s;
+    z-index: 2;
+}
+  .stripe {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: black;
+  }
+  .stripe.one {
+    top: 0%;
+  }
+  .stripe.two {
+    top: 50%;
+  }
+  .stripe.three {
+    top: 100%;
+  }
+
+  .menu {
+    clip-path: circle(0%);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 100vh;
+    align-content: center;
+  }
+
+  .showMenu {
+    visibility: visible;
+    opacity: 1;
+    transition: ease-in-out 0.3s;
+  }
+  .menu_items {
+      grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(20px, 3vw, 40px);
+    line-height: clamp(30px, 4vw, 70px);
+  }
+
+  .item {
+    opacity: 0;
+    width: min-content;
+    position: relative;
+  }
+  .menu_items > div::before {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 0px;
+    background-color: black;
+    transform: translateX(-50%);
+    bottom: 7%;
+    left: 50%;
+    transition: ease-in-out 0.2s;
+  }
+  .menu_items > div:hover {
+    cursor: pointer;
+  }
+  .menu_items > div:hover::before {
+    width: 95%;
+  }
+  .menu_view {
+    top: 3%;
+    margin-left: 1%;
+  }
+  .logo {
+      position: absolute;
+      margin-top: 3%;
+      margin-left: 3%;
+  }
+
+  .logo img {
+	width: 10vw;
+	margin-top: 3%;
+    margin-left: 3%;
+    z-index: 3;
+}
+
+/*Find_us section*/
+
+.section{
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    align-self: center;
+    width: var(--width);
+    height: clamp(190px, 30vw, 380px);
+    justify-self: center;
+    display: grid;
+}
+
+
+.img_find{
+    margin-top: 770px;
+}
+
+.img_find {
+    max-width: 2024px;
+    width: 5000%;
+    height: auto;
+}
+
+h1 {
+    font-family: "Oswald", sans-serif;
+    grid-column: 1/-1;
+    text-align: center;
+  font-size: clamp(15px, 4.5vw, 70px);
+    margin-top: -150px;
+}
+
+h2{
+    grid-column: 1/-1;
+    font-family: "Lato", sans-serif;
+    font-size: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.input {
+    position: relative;
+    display: grid;
+    justify-self: center;
+    z-index: 0;
+}
+
+.type {
+    width: 100%;
+    grid-column: 1/-1;
+    justify-content: center;
+    text-align: left;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    font-size: 25px;
+    outline: none;
+    font-family: "Lato", sans-serif;
+}
+
+.type:focus {
+    border: none;
+    border-bottom: 2px solid lightgray;
+    outline: none;
+}
+
+.arrow img {
+    background-repeat: no-repeat;
+  height: auto;
+  width: 20px;
+    transform: rotate(180deg);
+    position: absolute;
+    top: 1vw;
+    left: 14.5vw;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.arrow img:hover {
+    opacity: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+        margin-top: -140px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .type {
+        font-size: 17px;
+    }
+
+    .logo img {
+        width: 20vw;
+    }
+
+    .arrow img {
+        left: 45vw;
+        width: 14px;
+        top: 2vw;
+        cursor: pointer;
+    }
+
+    .img_find img {
+        margin-top: -150px;
+    }
+}
