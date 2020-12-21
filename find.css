@@ -102,6 +102,10 @@ body{
   .menu_items > div:hover::before {
     width: 95%;
   }
+  .menu_items a{
+    text-decoration: none;
+    color: black;
+  }
   .menu_view {
     top: 3%;
     margin-left: 1%;

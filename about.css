@@ -67,6 +67,10 @@ nav.burger {
 .menu_items > div:hover::before {
 	width: 95%;
 }
+.menu_items a{
+    text-decoration: none;
+    color: black;
+  }
 
 .stripe {
 	position: absolute;

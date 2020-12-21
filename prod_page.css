@@ -50,7 +50,7 @@ p{
 body{
     display:grid;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
-    grid-template-rows: 25px 3vw 92vh min-content min-content min-content min-content;
+    grid-template-rows: 25px 3vw 92vh min-content min-content min-content min-content min-content;
     height: 5000px;
 }
 
@@ -135,6 +135,10 @@ body{
   }
   .menu_items > div:hover::before {
     width: 95%;
+  }
+  .menu_items a{
+    text-decoration: none;
+    color: black;
   }
   .menu_view {
     top: 3%;
@@ -265,9 +269,13 @@ body{
     align-content: center;
     justify-items: flex-end;
 }
-.showcase img{
+.showcase div{
     margin-right: 5%;
-    width: 60%;
+    width: calc(30vw/1.6);
+    height: 30vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("http://meekee.me/public.html/SuperGood/wp-content/uploads/2020/12/take_it_with_the_grain.png");
 }
 
 .long_descr{

@@ -39,7 +39,7 @@ const endpoint = "http://meekee.me/public.html/SuperGood/wp-json/wp/v2/"
 getProducts();
 
 function getProducts(){
-  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients")
+  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients,_links,_embedded")
   .then(res=>res.json())
   // .then(out => console.log(out))
   .then(createProducts)
@@ -48,25 +48,35 @@ function getProducts(){
 function createProducts(allProducts){
   console.log(allProducts)
   const template = document.querySelector(".prod_section").content;
-  const parentElement = document.querySelector("body")
+  const ingredient = document.querySelector("#ingredients").content;
+  const parentElement = document.querySelector("body");
   allProducts.forEach(product =>{
     const copy = template.cloneNode(true);
+
     copy.querySelector(".intro h1").textContent=product.title.rendered;
     copy.querySelector(".intro p").textContent=product.short_description;
     copy.querySelector(".intro h2").textContent=product.tastes_like;
-    copy.querySelector(".showcase img").setAttribute("href", )
+    copy.querySelector(".showcase div").style.backgroundImage=`url(${product._embedded['wp:featuredmedia'][0].source_url})`;
+
+    
+    product.ingredients.forEach(ingre =>{
+      const ingrParent = copy.querySelector(".ingredients");
+      const whats_in = ingredient.cloneNode(true);
+      whats_in.querySelector(".ingre h2").textContent=ingre.name;
+      whats_in.querySelector(".ingre_png").style.backgroundImage=`url(${ingre.icon.guid})`;
+      ingrParent.appendChild(whats_in);
+    })
 
     parentElement.appendChild(copy);
   })
-  // setAttr();
+  setAttr();
 }
 
-// function setAttr(){
-//     let products = document.querySelectorAll(".product");
-//   for(i=0; i<products.length; i++){
-//     if(i=0){
-//       products[i].setAttribute('id', 'one')
-//     }
-//   }
-// }
+function setAttr(){
+    let products = document.querySelectorAll(".product");
+    products[0].setAttribute("id", 'one');
+    products[1].setAttribute("id", 'two');
+    products[2].setAttribute("id", 'three');
+    products[3].setAttribute("id", 'four');
+}
 
