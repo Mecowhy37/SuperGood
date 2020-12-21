@@ -207,7 +207,7 @@ button:hover {
   grid-column: 2/5;
   background-color: rgb(0, 59, 56);
   transform: translateY(-10%);
-  background-image: url("/imgs/Mask\ Group\ 1.png");
+  background-image: url("/imgs/meeting.png");
   background-size: contain;
 }
 
