@@ -13,10 +13,10 @@
 }
 
 body{
-    display:grid;
+    display: grid;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
     grid-template-rows: 25px 3vw 92vh;
-    height: 1500px;
+    height: 100%;
 }
 
 /* MENUBAR */
@@ -131,27 +131,29 @@ body{
     display: grid;
 }
 
-.image_find{
-    margin-top: 30px;
+
+.img_find{
+    margin-top: 770px;
 }
 
-.image_find img {
-    width: 100%;
+.img_find {
+    max-width: 2024px;
+    width: 5000%;
     height: auto;
-    max-width: 100%;
 }
 
 h1 {
     font-family: "Oswald", sans-serif;
-  font-size: 45px;
     grid-column: 1/-1;
     text-align: center;
+  font-size: clamp(15px, 4.5vw, 70px);
+    margin-top: -150px;
 }
 
 h2{
     grid-column: 1/-1;
     font-family: "Lato", sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 40px;
     text-align: center;
 }
@@ -160,6 +162,7 @@ h2{
     position: relative;
     display: grid;
     justify-self: center;
+    z-index: 0;
 }
 
 .type {
@@ -170,7 +173,7 @@ h2{
     border: none;
     border-bottom: 2px solid black;
     padding: 10px;
-    font-size: 18px;
+    font-size: 25px;
     outline: none;
     font-family: "Lato", sans-serif;
 }
@@ -184,59 +187,20 @@ h2{
 .arrow img {
     background-repeat: no-repeat;
   height: auto;
-  width: 15px;
+  width: 20px;
     transform: rotate(180deg);
     position: absolute;
     top: 1vw;
-    left: 17vw;
+    left: 14.5vw;
+}
+
+.arrow {
     cursor: pointer;
 }
 
 .arrow img:hover {
     opacity: 50%;
 }
-
-/* FOOTER */
-
-footer h4 {
-    font-family: 'Oswald', sans-serif;
-}
-
-.contact p {
-    font-family: 'Lato', sans-serif;
-}
-
-.contact a {
-    font-family: 'Lato', sans-serif;
-}
-
-.more a {
-    font-family: 'Oswald', sans-serif;
-}
-
-footer {
-    margin-top: 800px;
-    display: grid;
-}
-
-.contact {
-    display: block;
-}
-
-.more a {
-    display: block;
-}
-
-.arrow_footer img {
-    place-self: center;
-    background-repeat: no-repeat;
-    height: auto;
-    width: 1%;
-    background-size: contain;
-    background-position: center;
-    transform: rotate(180deg);
-}
-
 
 @media only screen and (max-width: 600px) {
     h1 {
@@ -261,5 +225,9 @@ footer {
         width: 14px;
         top: 2vw;
         cursor: pointer;
+    }
+
+    .img_find img {
+        margin-top: -150px;
     }
 }
