@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
 
-/* width: clamp(360px, 80vw, 1100px); */
+
 :root{
     --width: clamp(360px, 80vw, 1100px);
 }
+
 h1{
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
@@ -49,7 +50,7 @@ p{
 body{
     display:grid;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
-    grid-template-rows: 25px 3vw 92vh;
+    grid-template-rows: 25px 3vw 92vh min-content min-content min-content min-content;
     height: 5000px;
 }
 
@@ -202,8 +203,20 @@ body{
     height: min-content;
     display: inline;
 }
-#top{
-  grid-row: 4;
+.product:not(:first-of-type){
+  margin-top: 7%;
+}
+#one{
+  grid-row: 4/5;
+}
+#two{
+  grid-row: 5/6;
+}
+#three{
+  grid-row: 6/7
+}
+#four{
+  grid-row: 7/8;
 }
 
 .section{
