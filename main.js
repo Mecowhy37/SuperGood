@@ -56,6 +56,7 @@ function createProducts(allProducts){
     copy.querySelector(".BGcolor").style.backgroundColor = product.background_color;
     copy.querySelector(".descr h2").textContent = product.title.rendered;
     copy.querySelector(".descr p").textContent = product.short_description;
+    copy.querySelector(".prod_holder").style.backgroundImage = `url(${product._embedded['wp:featuredmedia'][0].source_url})`
     
     product.ingredients.forEach(ingre => {
       const whatsInParent = copy.querySelector(".whats_in");
@@ -79,24 +80,61 @@ function createProducts(allProducts){
     lineUpPar.appendChild(title);
   })
   
-  let titles = document.querySelectorAll(".prod_title")
-  let array = Array.from(titles)
-  let marker = document.querySelector(".marker")
+  const titles = document.querySelectorAll(".prod_title")
+  const array = Array.from(titles);
 
+  const layers =document.querySelectorAll(".wrapper");
+  const layersArr = Array.from(layers);
+
+  const marker = document.querySelector(".marker");
+
+  
+  let initSel = () => {
+    layersArr[0].dataset.sel = "true";
+    marker.style.left = array[0].offsetLeft+"px";
+    marker.style.width = array[0].offsetWidth+"px";
+    swapClasses();
+  }
+  initSel();
+  
   titles.forEach(title => {
     title.addEventListener("click", (e) =>{
+    let findPrevSel = layersArr.find(layer => layer.dataset.sel == "true");
+    let selectedIndex = layersArr.indexOf(findPrevSel);
+      
+    const titleIndex = array.indexOf(e.target);
     indicator(e.target);
-    console.log(array.indexOf(e.target))
-    })
-  })
+    
+    if(titleIndex !== selectedIndex){
+      //different clicked
 
-  marker.style.left = array[0].offsetLeft+"px";
-  marker.style.width = array[0].offsetWidth+"px";
-  
+      findPrevSel.dataset.sel="false";
+      layersArr[titleIndex].dataset.sel="true";
+
+    }else{
+      //the same clicked
+    }
+    let findSelected = layersArr.find(layer => layer.dataset.sel == "true");
+    console.log(array.indexOf(e.target))
+    swapClasses();
+    console.log(findSelected)
+  }) 
+})
+
+function swapClasses(){
+  let findSelected = layersArr.find(layer => layer.dataset.sel == "true");
+  layersArr.forEach(layer => {
+    if(layer.dataset.sel == "true"){
+      layer.classList.add("selected");
+      marker.style.backgroundColor = findSelected.querySelector(".BGcolor").style.backgroundColor;
+    }else{
+      layer.classList.remove("selected");
+    }
+  })
+}
+
   function indicator(e){
     marker.style.left = e.offsetLeft+"px";
     marker.style.width = e.offsetWidth+"px";
   }
 }
-
-

@@ -284,6 +284,10 @@ button:hover {
   grid-template-columns: 1fr 55vw 1fr;
   grid-template-rows: min-content clamp(200px, 28vw, 370px) min-content min-content;
   width: 100%;
+  z-index: 3;
+}
+.selected{
+  z-index:4;
 }
 
 .prod_present h2 {
@@ -448,6 +452,7 @@ button:hover {
     height: 100%;
     justify-content: center;
     position: relative;
+    z-index: 5;
   }
   .prod_title {
     width: 100%;
@@ -528,3 +533,6 @@ button:hover {
     padding-right: 10%;
   }
 }
+
+
+ 
