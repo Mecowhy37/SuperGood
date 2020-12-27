@@ -35,11 +35,15 @@ function menuHide() {
   clickOpen();
 }
 
+window.addEventListener('load', setup);
+function setup(){
+  getProducts();
+}
+
 const endpoint = "http://meekee.me/public.html/SuperGood/wp-json/wp/v2/"
-getProducts();
 
 function getProducts(){
-  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients,_links,_embedded")
+  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients, background_color,_links,_embedded")
   .then(res=>res.json())
   // .then(out => console.log(out))
   .then(createProducts)
@@ -57,6 +61,9 @@ function createProducts(allProducts){
     copy.querySelector(".intro p").textContent=product.short_description;
     copy.querySelector(".intro h2").textContent=product.tastes_like;
     copy.querySelector(".showcase div").style.backgroundImage=`url(${product._embedded['wp:featuredmedia'][0].source_url})`;
+    copy.querySelector(".long_descr p").textContent=product.long_description;
+    copy.querySelector(".first").style.backgroundColor = product.background_color;
+    copy.querySelector(".ingredients").style.backgroundColor = product.background_color;
 
     
     product.ingredients.forEach(ingre =>{
