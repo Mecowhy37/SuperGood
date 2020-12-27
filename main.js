@@ -43,7 +43,7 @@ function getProducts(){
   fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients,background_color,_links,_embedded")
   .then(res=>res.json())
   // .then(out => console.log(out))
-  // .then(createProducts)
+  .then(createProducts)
 }
 
 function createProducts(allProducts){

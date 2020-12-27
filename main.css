@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;100;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
 
 /* font classes */
@@ -272,10 +272,20 @@ button:hover {
   grid-row: 7/8;
   background-color: #e9f2e8;
   display: grid;
-  grid-template-rows: min-content clamp(200px, 28vw, 370px) min-content min-content;
-  grid-template-columns: 1fr 55vw 1fr;
+  grid-template-rows: min-content clamp(300px, 30vh, 400px);
+  grid-template-columns: 1fr;
   height: min-content;
 }
+
+.wrapper{
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 55vw 1fr;
+  grid-template-rows: min-content clamp(200px, 28vw, 370px) min-content min-content;
+  width: 100%;
+}
+
 .prod_present h2 {
   color: #054832;
 }
@@ -365,6 +375,7 @@ button:hover {
   display: block;
 }
 
+
 @media screen and (orientation: portrait) and (max-width: 360px) {
   .post_pic {
     transform: translateY(20%);
@@ -392,20 +403,25 @@ button:hover {
     border: 2px solid black;
   }
 }
+
 @media screen and (min-width: 500px) and (max-width: 1500px) {
   .whats_in {
     grid-column: 2/3;
   }
 }
+
 @media screen and (orientation: landscape) and (min-width: 1100px) {
   body {
     grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) 80vh 1fr;
   }
-  .prod_present {
+  .wrapper {
     grid-template-rows: 10% 40% 1fr;
     grid-template-columns: 5% 40% 10% 40% 5%;
     height: 100%;
     background-color: white;
+  }
+  .prod_present{
+    grid-template-rows: calc(80vh/9) 80vh;
   }
   .descr {
     grid-row: 2/3;
@@ -423,12 +439,15 @@ button:hover {
   .line_up {
     grid-row: 1/2;
     grid-column: 1/-1;
-    margin-left: 10%;
-    margin-right: 10%;
+    /* margin-left: 10%; */
+    /* margin-right: 10%; */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(min-content, 10%);
     grid-template-rows: 1fr;
     height: 100%;
+    justify-content: center;
+    position: relative;
   }
   .prod_title {
     width: 100%;
@@ -437,8 +456,16 @@ button:hover {
     align-content: center;
     justify-content: center;
     white-space: nowrap;
+    padding: 0 .7em;
+    z-index: 1;
+    cursor: pointer;
   }
-  .selected {
+  .marker{
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    left: 0;
+    transition: .5s;
     background-color: #e9f2e8;
   }
   .whats_in {
