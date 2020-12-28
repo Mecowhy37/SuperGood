@@ -54,7 +54,8 @@ function setHrefs(){
     console.log(i)
     buttonLinks[i].addEventListener("click", () => {
       console.log("clicked")
-      window.location.replace(`/prod_page.html?id=num${i}`)
+      window.location.replace(`/public.html/SuperGood-website/prod_page.html?id=num${i}`)
+      
     })
   }
 }
