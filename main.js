@@ -51,11 +51,8 @@ function setHrefs(){
   buttonLinks = document.querySelectorAll(".wrapper button");
   console.log(buttonLinks)
   for(let i=0; i<buttonLinks.length; i++){
-    console.log(i)
     buttonLinks[i].addEventListener("click", () => {
-      console.log("clicked")
-      window.location.replace(`http://meekee.me/public.html/SuperGood-website/prod_page.html?id=num${i}`)
-      
+      window.location=`./prod_page.html?id=num${i}`
     })
   }
 }

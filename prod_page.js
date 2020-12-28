@@ -90,7 +90,6 @@ function setAttr(){
 function jumpTo(){
   const urlParams = new URLSearchParams(window.location.search);
   destination = urlParams.get("id")
-  console.log(destination)
   document.querySelector(`#${destination}`).scrollIntoView()
 }
 

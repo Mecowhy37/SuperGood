@@ -29,11 +29,17 @@
     font-weight: 100;
     font-size: clamp(16px, 3vw, 30px);
 }
+h4{
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 3vw, 30px);
+}
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,8 +47,9 @@ body {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) clamp(300px, 30vh, 400px);
+    grid-template-rows: 25px 3vw 95vh 42.5vw 42.5vw clamp(90px, 23vw, 270px) clamp(300px, 30vh, 400px) min-content;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
+    
 }
 
 .logoCon {
@@ -80,7 +87,9 @@ body {
 .bgCon {
     grid-column: 1/-1;
     grid-row: 1/4;
-    /* background-color: rgb(82, 0, 0); */
+    background-image: url("./imgs/Group\ 10.png");
+    background-size: cover;
+    background-position: center center;
 }
 
 .burger {
@@ -185,7 +194,7 @@ body {
     margin-left: 1%;
 }
 
-button a {
+a {
     text-decoration: none;
     color: black;
 }
@@ -213,8 +222,11 @@ button {
 
 button:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px -5px;
-    color: white;
     background-color: black;
+    color: white;
+}
+button:hover a{
+    color: white;
 }
 
 .video {
@@ -418,11 +430,11 @@ button:hover {
 .footer {
     grid-column: 1/-1;
     height: min-content;
-    /* background-color:red; */
-    margin-top: 30%;
+    background-color:#F5F5F5;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr;
+    padding-top: 10%;
     padding-bottom: 10%;
 }
 
@@ -494,11 +506,30 @@ button:hover {
          grid-column: 3/4;
          justify-self: center;
      }
+     .footer{
+         padding-top: 20%;
+     }
 }
 
 @media screen and (min-width: 500px) and (max-width: 1500px) {
     .whats_in {
         grid-column: 2/3;
+    }
+    .footer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        height: 120px;
+        padding-top: 40%;
+    }
+
+    .footer > div {
+        align-self: flex-start;
+        justify-self: center;
+    }
+
+    .footer > div:last-child {
+        margin-top: 0;
+        ;
     }
 }
 
@@ -615,10 +646,9 @@ button:hover {
 
     .footer {
         grid-template-columns: repeat(3, 1fr);
-        grid-row: 1fr;
+        grid-template-rows: 1fr;
         height: 120px;
-        margin-top: 10%;
-        margin-bottom: 10%;
+        padding-top: 10%;
     }
 
     .footer > div {
@@ -629,10 +659,7 @@ button:hover {
     .footer > div:last-child {
         margin-top: 0;
         ;
-    }
-    /* .wrapper .arrow{
-        display: none;
-    } */
+    } 
 }
 
 @media screen and (min-width: 1500px) {
@@ -643,4 +670,20 @@ button:hover {
     .vid_text > p {
         padding-right: 10%;
     }
+    /* .footer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        height: 120px;
+        padding-top: 0%;
+    }
+
+    .footer > div {
+        align-self: flex-start;
+        justify-self: center;
+    }
+
+    .footer > div:last-child {
+        margin-top: 0;
+        ;
+    } */
 }
