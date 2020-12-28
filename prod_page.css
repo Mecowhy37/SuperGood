@@ -51,10 +51,9 @@ p{
 body{
     display:grid;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
-    grid-template-rows: 25px 3vw 92vh min-content min-content min-content min-content min-content;
+    grid-template-rows: 25px 3vw 92vh repeat(10, min-content) min-content;
     height: 5000px;
 }
-
 
 .burger {
     grid-row: 2/3;
@@ -211,17 +210,35 @@ body{
 .product:not(:first-of-type){
   margin-top: 7%;
 }
-#one{
+#num0{
   grid-row: 4/5;
 }
-#two{
+#num1{
   grid-row: 5/6;
 }
-#three{
+#num2{
   grid-row: 6/7
 }
-#four{
+#num3{
   grid-row: 7/8;
+}
+#num4{
+  grid-row: 8/9;
+}
+#num5{
+  grid-row: 9/10;
+}
+#num6{
+  grid-row: 10/11;
+}
+#num7{
+  grid-row: 11/12;
+}
+#num8{
+  grid-row: 12/13;
+}
+#num8{
+  grid-row: 13/14;
 }
 
 .section{

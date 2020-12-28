@@ -211,10 +211,10 @@ button {
     justify-self: center;
 }
 
-button a:hover,button:hover {
+button:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px -5px;
-    background-color: black;
     color: white;
+    background-color: black;
 }
 
 .video {
@@ -298,7 +298,6 @@ button a:hover,button:hover {
 .prod_present {
     grid-column: 1/-1;
     grid-row: 7/8;
-    background-color: #e9f2e8;
     display: grid;
     grid-template-rows: min-content clamp(300px, 30vh, 400px);
     grid-template-columns: 1fr;
@@ -313,10 +312,16 @@ button a:hover,button:hover {
     grid-template-rows: min-content clamp(200px, 28vw, 370px) min-content min-content;
     width: 100%;
     z-index: 3;
+    visibility: hidden;
 }
-
+.BGcolor{
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    z-index: -1;
+}
 .selected {
     z-index: 4;
+    visibility: visible;
 }
 
 .prod_present h2 {
@@ -387,14 +392,28 @@ button a:hover,button:hover {
 .right {
     transform: rotate(180deg);
 }
+.arrow{
+    width: 20px;
+}
+.arrow{
+    grid-row: 2;
+    width: 20px;
+}
+ .wrapper .left{
+     grid-column: 1/2;
+ }
+ .wrapper .right{
+     grid-column: 3/4;
+     justify-self: center;
+ }
 
 .line_up {
     display: none;
 }
 
-.BGcolor {
+/* .BGcolor {
     visibility: hidden;
-}
+} */
 
 .footer {
     grid-column: 1/-1;
@@ -438,6 +457,17 @@ button a:hover,button:hover {
         grid-column: 3/5;
         grid-row: 2;
     }
+    .arrow{
+        grid-row: 2/3;
+        width: 20px;
+    }
+    .wrapper .left{
+        grid-column: 1/2;
+    }
+    .wrapper .right{
+        grid-column: 3/4;
+        justify-self: center;
+    }
 }
 
 @media screen and (orientation: portrait) and (max-width: 500px) and (min-width: 360px) {
@@ -453,6 +483,17 @@ button a:hover,button:hover {
     .meet {
         border: 2px solid black;
     }
+    .arrow{
+        grid-row: 2;
+        width: 20px;
+    }
+     .wrapper .left{
+         grid-column: 1/2;
+     }
+     .wrapper .right{
+         grid-column: 3/4;
+         justify-self: center;
+     }
 }
 
 @media screen and (min-width: 500px) and (max-width: 1500px) {
@@ -562,16 +603,15 @@ button a:hover,button:hover {
         height: 15%;
         width: 5%;
     }
-
-    .left {
+    .wrapper .left {
         grid-column: 2/3;
         justify-self: flex-start;
     }
-
-    .right {
+ 
+    .wrapper .right {
         grid-column: 4/5;
         justify-self: flex-end;
-    }
+    } 
 
     .footer {
         grid-template-columns: repeat(3, 1fr);
@@ -590,6 +630,9 @@ button a:hover,button:hover {
         margin-top: 0;
         ;
     }
+    /* .wrapper .arrow{
+        display: none;
+    } */
 }
 
 @media screen and (min-width: 1500px) {

@@ -29,7 +29,7 @@ function menuHide() {
 
 window.addEventListener('load', setup);
 function setup(){
-  getProducts();
+  getProducts()
 }
 
 // let slide = gsap.timeline();
@@ -44,6 +44,19 @@ function getProducts(){
   .then(res=>res.json())
   // .then(out => console.log(out))
   .then(createProducts)
+  .then(setHrefs)
+}
+
+function setHrefs(){
+  buttonLinks = document.querySelectorAll(".wrapper button");
+  console.log(buttonLinks)
+  for(let i=0; i<buttonLinks.length; i++){
+    console.log(i)
+    buttonLinks[i].addEventListener("click", () => {
+      console.log("clicked")
+      window.location.replace(`/prod_page.html?id=num${i}`)
+    })
+  }
 }
 
 function createProducts(allProducts){
@@ -66,7 +79,6 @@ function createProducts(allProducts){
       ingred.querySelector("p").textContent = ingre.name;
       whatsInParent.appendChild(ingred);
     })
-
     parent.appendChild(copy);
   })
 
@@ -85,9 +97,6 @@ function createProducts(allProducts){
 
   const layers =document.querySelectorAll(".wrapper");
   const layersArr = Array.from(layers);
-
-  const marker = document.querySelector(".marker");
-
   
   let initSel = () => {
     layersArr[0].dataset.sel = "true";
@@ -100,25 +109,55 @@ function createProducts(allProducts){
   titles.forEach(title => {
     title.addEventListener("click", (e) =>{
     let findPrevSel = layersArr.find(layer => layer.dataset.sel == "true");
-    let selectedIndex = layersArr.indexOf(findPrevSel);
+    let prevSelectedIndex = layersArr.indexOf(findPrevSel);
       
     const titleIndex = array.indexOf(e.target);
     indicator(e.target);
     
-    if(titleIndex !== selectedIndex){
-      //different clicked
-
+    if(titleIndex !== prevSelectedIndex){
       findPrevSel.dataset.sel="false";
       layersArr[titleIndex].dataset.sel="true";
-
-    }else{
-      //the same clicked
     }
+
     let findSelected = layersArr.find(layer => layer.dataset.sel == "true");
+    let selectedIndex = layersArr.indexOf(findSelected);
     console.log(array.indexOf(e.target))
     swapClasses();
     console.log(findSelected)
   }) 
+})
+const arrows = document.querySelectorAll(".wrapper .arrow")
+
+
+arrows.forEach(arrow => {
+  arrow.addEventListener("click", (e) =>{
+  let findSelected = layersArr.find(layer => layer.dataset.sel == "true");
+  let selectedIndex = layersArr.indexOf(findSelected);
+  //  let next = prevSelectedIndex ++;
+  //  let prev = prevSelectedIndex --
+  if(e.target.classList.contains("right")){
+    if(selectedIndex==layersArr.length-1){
+      findSelected.dataset.sel="false";
+      layersArr[0].dataset.sel="true";
+      indicator(array[0]);
+    }else{
+      findSelected.dataset.sel="false"
+      layersArr[selectedIndex+1].dataset.sel="true"
+      indicator(array[selectedIndex+1])
+    }
+  }else{
+    if(selectedIndex === 0){
+      findSelected.dataset.sel="false";
+      layersArr[layersArr.length-1].dataset.sel="true";
+      indicator(array[layersArr.length-1]);
+    }else{
+      findSelected.dataset.sel="false"
+      layersArr[selectedIndex-1].dataset.sel="true"
+      indicator(array[selectedIndex-1])
+    }
+  }
+  swapClasses();
+})
 })
 
 function swapClasses(){
@@ -132,9 +171,11 @@ function swapClasses(){
     }
   })
 }
-
-  function indicator(e){
-    marker.style.left = e.offsetLeft+"px";
-    marker.style.width = e.offsetWidth+"px";
-  }
 }
+const marker = document.querySelector(".marker");
+function indicator(e){
+  marker.style.left = e.offsetLeft+"px";
+  marker.style.width = e.offsetWidth+"px";
+}
+
+

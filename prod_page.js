@@ -47,6 +47,8 @@ function getProducts(){
   .then(res=>res.json())
   // .then(out => console.log(out))
   .then(createProducts)
+  .then(setAttr)
+  .then(jumpTo)
 }
 
 function createProducts(allProducts){
@@ -76,14 +78,19 @@ function createProducts(allProducts){
 
     parentElement.appendChild(copy);
   })
-  setAttr();
 }
 
 function setAttr(){
     let products = document.querySelectorAll(".product");
-    products[0].setAttribute("id", 'one');
-    products[1].setAttribute("id", 'two');
-    products[2].setAttribute("id", 'three');
-    products[3].setAttribute("id", 'four');
+    for(i=0; i<products.length; i++){
+      products[i].setAttribute("id", "num"+i)
+    }
+}
+
+function jumpTo(){
+  const urlParams = new URLSearchParams(window.location.search);
+  destination = urlParams.get("id")
+  console.log(destination)
+  document.querySelector(`#${destination}`).scrollIntoView()
 }
 
