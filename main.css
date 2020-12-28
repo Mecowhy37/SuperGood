@@ -211,7 +211,7 @@ button {
     justify-self: center;
 }
 
-a:hover,button:hover {
+button a:hover,button:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 20px -5px;
     background-color: black;
     color: white;
