@@ -43,11 +43,12 @@ function setup(){
 const endpoint = "http://meekee.me/public.html/SuperGood/wp-json/wp/v2/"
 
 function getProducts(){
-  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients, background_color,_links,_embedded")
+  fetch(endpoint+"product?_embed&_fields=title,short_description,tastes_like,long_description,nutritional_label,ingredients, background_color,nutritional_label,_links,_embedded")
   .then(res=>res.json())
   // .then(out => console.log(out))
   .then(createProducts)
   .then(setAttr)
+  .then(labelShow)
   .then(jumpTo)
 }
 
@@ -66,6 +67,7 @@ function createProducts(allProducts){
     copy.querySelector(".long_descr p").textContent=product.long_description;
     copy.querySelector(".first").style.backgroundColor = product.background_color;
     copy.querySelector(".ingredients").style.backgroundColor = product.background_color;
+    copy.querySelector(".label").style.backgroundImage=`url(${product.nutritional_label.guid})`
 
     
     product.ingredients.forEach(ingre =>{
@@ -93,3 +95,24 @@ function jumpTo(){
   document.querySelector(`#${destination}`).scrollIntoView()
 }
 
+function labelShow(){
+  const buttons = document.querySelectorAll(".clickToView")
+  buttons.forEach(button => {
+    button.addEventListener("click",(e) => {
+      const modal = e.target.parentElement.parentElement.parentElement
+      modal.querySelector(".labelview").classList.add("visible")
+    })
+  })
+  labelHide();
+}
+
+function labelHide(){
+const closes = document.querySelectorAll(".labelview p")
+closes.forEach(close => {
+  close.addEventListener("click", () => {
+    document.querySelectorAll(".labelview").forEach(label => {
+      label.classList.remove("visible")
+    })
+  })
+})
+}

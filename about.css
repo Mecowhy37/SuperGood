@@ -260,6 +260,43 @@ section > .text p {
 }
 
 /*** Footer from Landing Page ***/
+.footer {
+    grid-column: 1/-1;
+    height: min-content;
+    background-color:#F5F5F5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.footer > div {
+    align-self: top;
+    margin-left: 5%;
+}
+.footer h4{
+	font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: calc(clamp(16px, 3vw, 30px)*0.7);
+}
+.footer p{
+	font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+.footer > div:last-child {
+    /* margin-top: 10%; */
+}
+
+.footer a {
+	display: block;
+	text-decoration: none;
+	color:black;
+	font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    font-size: clamp(16px, 3vw, 30px);
+}
 
 /*** Media Queries ***/
 
@@ -317,5 +354,12 @@ section > .text p {
 		width: 70vw;
 		height: 70vw;
 		margin: 5% 10%;
+	}
+	.footer{
+		grid-template-rows: repeat(3, min-content);
+        grid-template-columns: 1fr;
+	}
+	.footer > div{
+		padding-bottom: 10%;
 	}
 }

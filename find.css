@@ -15,7 +15,7 @@
 body{
     display: grid;
     grid-template-columns: 2% 3% 5% minmax(0, 1fr) 10% minmax(0, 1fr) 5% 3% 2%;
-    grid-template-rows: 25px 3vw 92vh;
+    grid-template-rows: 25px 3vw 92.5vh min-content min-content;
     height: 100%;
 }
 
@@ -137,13 +137,15 @@ body{
 
 
 .img_find{
-    margin-top: 650px;
+    /* margin-top: 650px; */
 }
 
 .img_find {
     max-width: 2024px;
     width: 5000%;
     height: auto;
+    grid-row: 4/5;
+    justify-self: top;
 }
 
 h1 {
@@ -204,6 +206,44 @@ h2{
 .arrow img:hover {
     opacity: 50%;
 }
+.footer {
+  grid-column: 1/-1;
+  grid-row: -1;
+  height: min-content;
+  background-color:#F5F5F5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  padding-top: 5%;
+padding-bottom: 5%;
+}
+
+.footer > div {
+  align-self: top;
+  margin-left: 5%;
+}
+.footer h4{
+font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: calc(clamp(16px, 3vw, 30px)*0.7);
+}
+.footer p{
+font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+.footer > div:last-child {
+  /* margin-top: 10%; */
+}
+
+.footer a {
+display: block;
+text-decoration: none;
+color:black;
+font-family: "Oswald", sans-serif;
+  font-weight: 100;
+  font-size: clamp(16px, 3vw, 30px);
+}
 
 @media only screen and (max-width: 600px) {
     h1 {
@@ -232,5 +272,12 @@ h2{
 
     .img_find img {
         margin-top: -150px;
+    }
+    .footer{
+      grid-template-rows: repeat(3, min-content);
+          grid-template-columns: 1fr;
+    }
+    .footer > div{
+      padding-bottom: 10%;
     }
 }
