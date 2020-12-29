@@ -72,6 +72,10 @@ nav.burger {
     color: black;
   }
 
+.burger:hover {
+    cursor: pointer;
+}
+
 .stripe {
 	position: absolute;
 	width: 100%;
