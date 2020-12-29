@@ -442,7 +442,7 @@ button:hover a{
 }
 
 .footer > div {
-    display: grid ()
+    display: grid;
     align-self: center;
     margin-left: 5%;
 }
@@ -453,6 +453,28 @@ button:hover a{
 
 .footer a {
     display: block;
+}
+.SoMe {
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    /* background-color: violet; */
+    display: flex;
+}
+.SoMe a {
+    height: 100%;
+    width: 10%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.ig{
+    background-image: url("./SoMeIcons/instagram.png");
+}
+.fb{
+    background-image: url("./SoMeIcons/facebook.png");
+}
+.linked{
+    background-image: url("./SoMeIcons/linked.png");
 }
 
 
