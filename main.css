@@ -105,6 +105,9 @@ body {
     z-index: 2;
 }
 
+.burger:hover {
+    cursor: pointer;
+}
 /* .burger:hover{
     height: clamp(20px, 57%, 35px);
     width: clamp(40px, 60%, 70px);
@@ -439,6 +442,7 @@ button:hover a{
 }
 
 .footer > div {
+    display: grid ()
     align-self: center;
     margin-left: 5%;
 }

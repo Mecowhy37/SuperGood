@@ -31,7 +31,7 @@ body{
     align-self: flex-end;
     position: relative;
     transition: ease-in-out 0.2s;
-    z-index: 2;
+    z-index: 3;
 }
   .stripe {
     position: absolute;
@@ -60,6 +60,10 @@ body{
     grid-template-rows: 100vh;
     align-content: center;
   }
+
+.burger:hover {
+    cursor: pointer;
+}
 
   .showMenu {
     visibility: visible;
@@ -181,6 +185,7 @@ h2{
     font-size: 100%;
     outline: none;
     font-family: "Lato", sans-serif;
+
 }
 
 .type:focus {

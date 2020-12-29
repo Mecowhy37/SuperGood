@@ -7,7 +7,7 @@
 
 nav.burger {
 	height: clamp(20px, 4vh, 35px);
-	width: clamp(40px, 6vw, 65px);
+	width: clamp(20px, 6vw, 65px);
 	position: relative;
 	transition: ease-in-out .2s;
 	z-index: 2;
@@ -71,6 +71,12 @@ nav.burger {
     text-decoration: none;
     color: black;
   }
+
+.burger:hover {
+    cursor: pointer;
+}
+
+
 
 .stripe {
 	position: absolute;
@@ -259,6 +265,7 @@ section > .text p {
 	padding: 2%;
 }
 
+<<<<<<< HEAD
 /*** Footer from Landing Page ***/
 .footer {
     grid-column: 1/-1;
@@ -296,6 +303,13 @@ section > .text p {
 	font-family: "Oswald", sans-serif;
     font-weight: 100;
     font-size: clamp(16px, 3vw, 30px);
+=======
+/*** Footer ***/
+
+footer {
+    display: grid;
+
+>>>>>>> bf88a28a2a89540e4ddad30a1ff5bf91857a205a
 }
 
 /*** Media Queries ***/

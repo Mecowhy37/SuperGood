@@ -69,6 +69,11 @@ body{
     transition: ease-in-out 0.2s;
     z-index: 2;
 }
+
+.burger:hover {
+    cursor: pointer;
+}
+
   .stripe {
     position: absolute;
     width: 100%;
@@ -376,10 +381,6 @@ font-family: "Lato", sans-serif;
   font-weight: 400;
 }
 
-.footer > div:last-child {
-  /* margin-top: 10%; */
-}
-
 .footer a {
 display: block;
 text-decoration: none;
@@ -432,7 +433,7 @@ button:hover a{
   left:50%;
   height: clamp(250px, 70vh,500px);
   width: 500px;
-  background-image: url("http://meekee.me/public.html/SuperGood/wp-content/uploads/2020/12/grain.png");
+  background-image: url("");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
