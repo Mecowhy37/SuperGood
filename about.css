@@ -265,7 +265,12 @@ section > .text p {
 	padding: 2%;
 }
 
-/*** Footer from Landing Page ***/
+/*** Footer ***/
+
+footer {
+    display: grid;
+
+}
 
 /*** Media Queries ***/
 

@@ -442,6 +442,7 @@ button:hover a{
 }
 
 .footer > div {
+    display: grid ()
     align-self: center;
     margin-left: 5%;
 }
