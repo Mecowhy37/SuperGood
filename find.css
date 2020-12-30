@@ -249,6 +249,28 @@ font-family: "Oswald", sans-serif;
   font-weight: 100;
   font-size: clamp(16px, 3vw, 30px);
 }
+.SoMe {
+  width: 100%;
+  margin-top: 10px;
+  height: 30px;
+  /* background-color: violet; */
+  display: flex;
+}
+.SoMe a {
+  height: 100%;
+  width: 10%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.ig{
+  background-image: url("./SoMeIcons/instagram.png");
+}
+.fb{
+  background-image: url("./SoMeIcons/facebook.png");
+}
+.linked{
+  background-image: url("./SoMeIcons/linked.png");
+}
 
 @media only screen and (max-width: 600px) {
     h1 {

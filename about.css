@@ -265,7 +265,6 @@ section > .text p {
 	padding: 2%;
 }
 
-<<<<<<< HEAD
 /*** Footer from Landing Page ***/
 .footer {
     grid-column: 1/-1;
@@ -303,13 +302,28 @@ section > .text p {
 	font-family: "Oswald", sans-serif;
     font-weight: 100;
     font-size: clamp(16px, 3vw, 30px);
-=======
-/*** Footer ***/
-
-footer {
-    display: grid;
-
->>>>>>> bf88a28a2a89540e4ddad30a1ff5bf91857a205a
+}
+.SoMe {
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    /* background-color: violet; */
+    display: flex;
+}
+.SoMe a {
+    height: 100%;
+    width: 10%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.ig{
+    background-image: url("./SoMeIcons/instagram.png");
+}
+.fb{
+    background-image: url("./SoMeIcons/facebook.png");
+}
+.linked{
+    background-image: url("./SoMeIcons/linked.png");
 }
 
 /*** Media Queries ***/
